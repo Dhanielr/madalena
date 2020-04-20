@@ -133,3 +133,8 @@ MEDIA_URL = '/media/'
 
 #### Celery
 
+CELERY_BROKER_URL = 'redis://h:p66c1cae3a729fe4f776df90fb47ecae750e706b27be3f9779c60d85f7f6875f8@ec2-107-22-23-198.compute-1.amazonaws.com:32539'
+
+CELERY_ACCEPT_CONTENT = ['json',]
+CELERY_TASK_SERIALIZER = 'json'
+
