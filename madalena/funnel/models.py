@@ -1,4 +1,14 @@
 from django.db import models
+from django.dispatch import receiver
+
+class EntryImagesManager(models.Manager):
+
+    def define_resized(self, id):
+        resized_item = self.get(id=id)
+        resized_item.resized = True
+        resized_item.save()
+
+        return True
 
 class EntryImages(models.Model):
 
@@ -11,6 +21,8 @@ class EntryImages(models.Model):
     height = models.PositiveIntegerField('Altura', default=384, blank=False, null=False)
     width = models.PositiveIntegerField('Largura', default=384, blank=False, null=False)
 
+    objects = EntryImagesManager()
+
     class Meta:
         verbose_name = 'Imagem de entrada'
         verbose_name_plural = "Imagems de entradas"
@@ -18,4 +30,9 @@ class EntryImages(models.Model):
 
     def __str__(self):
         return f'{self.image}'
+
+@receiver(models.signals.post_save, sender=EntryImages)
+def task_resizer_call(sender, instance, created, **kwargs):
+    print(instance.image.url)
+    print(type(instance.image))
 
