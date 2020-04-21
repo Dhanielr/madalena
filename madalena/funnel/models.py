@@ -1,8 +1,10 @@
 from django.db import models
+from django.conf import settings
 from django.dispatch import receiver
 import os
 
-from resizer.tasks import resize_image_task, sleepy_test
+from resizer.processors import ResizingPreProcessor
+
 
 class EntryImages(models.Model):
 
@@ -28,8 +30,6 @@ class EntryImages(models.Model):
         return os.path.basename(self.image.name)
 
 @receiver(models.signals.post_save, sender=EntryImages)
-def task_resizer_call(sender, instance, created, **kwargs):
-    sleepy_test.delay(2)
-    resize_image_task.delay(instance)
-
-
+def processor_call(sender, instance, created, **kwargs):
+    processor = ResizingPreProcessor()
+    processor.start_processing(instance)

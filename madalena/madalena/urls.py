@@ -7,7 +7,6 @@ from django.contrib.auth.models import User
 from rest_framework import routers
 
 from funnel.api.viewsets import FunnelViewSet
-from resizer.views import TestView
 
 admin.site.site_header = f'Madalena Admin'.upper()
 admin.site.site_title =  f'Madalena Admin'
@@ -20,8 +19,6 @@ router.register(r'funnel', FunnelViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-
-    path('test/', TestView.as_view()),
 ]
 
 if settings.DEBUG: 
