@@ -1,5 +1,10 @@
 # nginx.default
 
+http {
+    # Desabilita limites de envios de tamanhos de imagens
+    client_max_body_size 0;
+}
+
 server {
     listen 8020;
     server_name madalena.com.br;
