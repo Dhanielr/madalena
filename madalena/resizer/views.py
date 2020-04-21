@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
+from django.conf import settings
+
 from .tasks import sleepy_test
 
 class TestView(TemplateView):
@@ -11,6 +13,6 @@ class TestView(TemplateView):
         context = super(TestView, self).get_context_data()
         context['test'] = 'Página de Testes'
 
-        sleepy_test.delay(10)
+        # print(settings.MEDIA_ROOT)
 
         return context

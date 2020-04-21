@@ -8,3 +8,4 @@ class FunnelViewSet(viewsets.ModelViewSet):
 
     queryset = EntryImages.objects.all()
     serializer_class = EntryImagesSerializer
+    http_method_names = ['post',]

@@ -1,14 +1,8 @@
 from django.db import models
 from django.dispatch import receiver
+import os
 
-class EntryImagesManager(models.Manager):
-
-    def define_resized(self, id):
-        resized_item = self.get(id=id)
-        resized_item.resized = True
-        resized_item.save()
-
-        return True
+from resizer.tasks import resize_image_task, sleepy_test
 
 class EntryImages(models.Model):
 
@@ -18,10 +12,9 @@ class EntryImages(models.Model):
     image = models.ImageField('Imagem de entrada', upload_to='entry_images', blank=False, null=False)
     crop = models.BooleanField('Cortar', default=True)
     resized = models.BooleanField('Redimencionada', default=False)
+    resized_image = models.ImageField('Imagem redimensionada', upload_to='resized_image', blank=True, null=True)
     height = models.PositiveIntegerField('Altura', default=384, blank=False, null=False)
     width = models.PositiveIntegerField('Largura', default=384, blank=False, null=False)
-
-    objects = EntryImagesManager()
 
     class Meta:
         verbose_name = 'Imagem de entrada'
@@ -31,8 +24,12 @@ class EntryImages(models.Model):
     def __str__(self):
         return f'{self.image}'
 
+    def filename(self):
+        return os.path.basename(self.image.name)
+
 @receiver(models.signals.post_save, sender=EntryImages)
 def task_resizer_call(sender, instance, created, **kwargs):
-    print(instance.image.url)
-    print(type(instance.image))
+    sleepy_test.delay(2)
+    resize_image_task.delay(instance)
+
 
