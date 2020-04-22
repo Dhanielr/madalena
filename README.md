@@ -35,7 +35,7 @@ A aplicação __Resizer__ trata-se de um *redimensionador de imagens*, utilizand
 
 A instalação é bem simples, detalharei abaixo os passos:
 
-* Se desejar, faça um fork desse projeto se deseja alterá-lo, clicando no botão de **Fork** mais acima nessa mesma página.
+* Se desejar, faça um fork desse projeto caso queira alterá-lo. Clique no botão de **Fork** mais acima nessa mesma página.
 
 * Faça um clone do repositório, se você tiver feito o *Fork* coloque a sua url de *ssh* no lugar da descrita abaixo:
 
