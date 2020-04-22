@@ -27,7 +27,7 @@ Parâmetros:
 
 ### Funcionamento da Madalena
 
-![Fluxograma Madalena](https://raw.githubusercontent.com/Dhanielr/madalena/master/docs_imgs/Madalena.png?token=AJTCLVS3FQC7K3YUJXDFN5C6UB6JE)
+![Fluxograma Madalena](https://github.com/Dhanielr/madalena/blob/master/docs_imgs/Madalena.png)
 
 
 ### Instalação
