@@ -4,6 +4,10 @@ Madalena é um projeto composto por uma aplicação chamada Funnel, que é API R
 
 O escopo e modelagem de suas aplicações foi trabalhado de maneira a ser plugável, tentando ao máximo não ter nenhum tipo de acoplamento, para que possam inclusive ser utilizada em outros projetos.
 
+### Funcionamento da Madalena
+
+![Fluxograma Madalena](https://github.com/Dhanielr/madalena/blob/master/docs_imgs/Madalena.png)
+
 ## Funnel - API RestFul
 
 A aplicação __Funnel__ é uma API RestFul criada a partir do [Django Rest Framework](https://www.django-rest-framework.org/), utilizando-se atualmente de um único verbo HTTP, o _POST_.
@@ -23,14 +27,11 @@ Parâmetros:
 | **crop** *Opcional*     | Boolean          | true         | Parâmetro para definir se a imagem pode ser cortada no momento do redimensionamento para manter proporcionalidade. |
 
 
+## Resizer - Redimensionador de imagens 
 
-### Funcionamento da Madalena
+A aplicação __Resizer__ trata-se de um *redimensionador de imagens*, utilizando-se das libs [Pillow](https://pypi.org/project/Pillow/) e [python-resize-image](https://pypi.org/project/python-resize-image/). 
 
-
-![Fluxograma Madalena](https://github.com/Dhanielr/madalena/blob/master/docs_imgs/Madalena.png)
-
-
-### Instalação
+## Instalação
 
 A instalação é bem simples, detalharei abaixo os passos:
 
