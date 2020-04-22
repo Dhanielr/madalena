@@ -1,24 +1,23 @@
 # Madalena
 
-Madalena é um projeto composto por uma API RestFul como ponto de entrada para um redimensionador de imagens feito com Tasks do Celery.
+Madalena é um projeto composto por uma aplicação chamada Funnel, que é API RestFul que serve como ponto de entrada para uma outra aplicação chamada Resizer, que se trata de um redimensionador de imagens feito com Tasks do Celery.
 
-O escopo e modelagem de suas aplicações foi trabalhado de maneira a ser plugável, tentando não ter nenhum tipo de acoplamento, para que possa inclusive ser utilizada em outros projetos.
+O escopo e modelagem de suas aplicações foi trabalhado de maneira a ser plugável, tentando ao máximo não ter nenhum tipo de acoplamento, para que possam inclusive ser utilizada em outros projetos.
 
 ## Funnel - API RestFul
-
 
 A aplicação __Funnel__ é uma API RestFul criada a partir do [Django Rest Framework](https://www.django-rest-framework.org/), utilizando-se atualmente de um único verbo HTTP, o _POST_.
 
 ### Utilizando a API RestFul
 
-Como utilizaremos o verbo POST para enviar uma imagem e outros parâmetros opcionais pela API, precisamos passá-los via _form-data_, que se encontra no corpo da requisição.
+Como utilizaremos o verbo POST para enviar uma *imagem* e outros parâmetros opcionais pela API, precisamos passá-los via _form-data_, que se encontra no corpo da requisição.
 
 Parâmetros:
 
 
 | Parâmetro               | Tipo             | Valor Padrão | Descrição                                                                                                          |
 |-------------------------|------------------|--------------|--------------------------------------------------------------------------------------------------------------------|
-| **image** *Obrigatório* | ImageFile        | None         | Parâmetro para definir a imagem que será redimensionada.                                                        |
+| **image** <font size="10">*Obrigatório*</font> | ImageFile        | None         | Parâmetro para definir a imagem que será redimensionada.                                                        |
 | **width** *Opcional*    | Positive Integer | 384          | Parâmetro para definir a largura desejada na imagem redimensionada.                                         |
 | **height** *Opcional*   | Positive Integer | 384          | Parâmetro para definir a altura desejada na imagem redimensionada.                                          |
 | **crop** *Opcional*     | Boolean          | true         | Parâmetro para definir se a imagem pode ser cortada no momento do redimensionamento para manter proporcionalidade. |
