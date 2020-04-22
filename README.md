@@ -55,7 +55,7 @@ sudo docker build -t madalena .
 * Após a criação da imagem do docker, agora é basta rodar o container, estou incluindo no comando, parâmetros para que seja criado um usuário admin, para visualizer melhor as imagens que foram recebidas pela API e as redimensionadas.
 
 ```
-sudo docker run -it -p 8020:8020 -e \ DJANGO_SUPERUSER_USERNAME=admin -e \ DJANGO_SUPERUSER_PASSWORD=321mudar -e \ DJANGO_SUPERUSER_EMAIL=admin@example.com madalena
+sudo docker run -it -p 8020:8020 -e DJANGO_SUPERUSER_USERNAME=admin -e DJANGO_SUPERUSER_PASSWORD=321mudar -e DJANGO_SUPERUSER_EMAIL=admin@example.com madalena
 ```
 * Feito isso, nosso container Docker está criado e rodando, bastando agora que o *celery* seja iniciado, para isso, precisamos acessar um *shell* do nosso container.
 
