@@ -44,7 +44,7 @@ git clone git@github.com:Dhanielr/madalena.git
 
 * Após ter o repositório localmente, é importante que o mesmo ambiente do repositório já possa o [Docker](https://docs.docker.com/engine/install/), caso não seja esse o caso, basta clicar [aqui](https://docs.docker.com/engine/install/)  para instalar.
 
-* É importante citar que o serviço do container rodará na porta **8020**, caso deseje alterar isso, altere no arquivo *nginx.default* e no *Dockerfile* os locais que possuirem a porta 8020.
+* É importante citar que o serviço do container rodará na porta **8020**, caso deseje alterar isso, altere os locais que possuirem a porta 8020, os locais são no arquivo *nginx.default*, no *Dockerfile* e no comando do *docker run* logo a seguir.
 
 * Tendo agora o ambiente com o Docker instalado e o repositório baixado localmente, acesse o repositório e rode o seguinte comando, para que seja criada a imagem para o nosso container:
 
