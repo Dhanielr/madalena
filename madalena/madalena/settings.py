@@ -130,12 +130,14 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
 MEDIA_URL = '/media/'
 
-#### Celery
+#### Tasks
 
 RESIZER_RESULT_FOLDER = 'resized_images/' ## Dont Forget the '/'
 RESIZER_RESULT_PATH = os.path.join(MEDIA_ROOT, RESIZER_RESULT_FOLDER)
 
-CELERY_BROKER_URL = 'redis://h:p66c1cae3a729fe4f776df90fb47ecae750e706b27be3f9779c60d85f7f6875f8@ec2-107-22-23-198.compute-1.amazonaws.com:32539'
+#### Celery
+
+CELERY_BROKER_URL = ''
 
 CELERY_ACCEPT_CONTENT = ['json',]
 CELERY_TASK_SERIALIZER = 'json'
