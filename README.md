@@ -63,7 +63,7 @@ A instalação é bem simples, detalharei abaixo os passos:
 
         sudo docker run -it -p 8020:8020 -e DJANGO_SUPERUSER_USERNAME=admin -e DJANGO_SUPERUSER_PASSWORD=321mudar -e DJANGO_SUPERUSER_EMAIL=admin@example.com madalena
 
-* Feito isso, nosso container Docker está criado e rodando, bastando agora que o *celery* seja iniciado, para isso, precisamos acessar um *shell* do nosso container.
+* Feito isso, nosso container Docker estará criado e rodando, bastando agora que o *celery* seja iniciado, para isso, precisamos acessar um *shell* do nosso container.
 
         sudo docker exec -it CONTAINER_ID /bin/bash
 
@@ -74,6 +74,11 @@ A instalação é bem simples, detalharei abaixo os passos:
 * Agora basta fazer seus envios para a url *localhost:8020/funnel* e verá a no seu *terminal do celery*, a recepção das tasks e no *terminal do docker run* as requisições http. 
 
 :)
+## Observações
+
+Estou utilizando o [celery](http://www.celeryproject.org/) em conjunto com [redis](https://redis.io/) como *broker*, que está rodando em uma aplicação gratuita no [heroku](https://www.heroku.com/). 
+
+A url da mesma já se encontra configurada no *madalena/settings.py*. Caso deseje rodar com uma própia instância do redis ou com outro broker fique a vontade para alterar no projeto.
 
 ## Considerações Finais
 
@@ -88,3 +93,5 @@ O nome do projeto veio de uma dog muito fofa, que tenho muita vontade de conhece
 * [Django](https://www.djangoproject.com/) 
 * [Django REST framework](https://www.django-rest-framework.org/)
 * [Redis](https://redis.io/)
+* [Heroku](https://www.heroku.com/)
+
