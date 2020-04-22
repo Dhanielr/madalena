@@ -1,18 +1,16 @@
 # nginx.default
 
-http {
-    client_max_body_size 0;
-    
-    http {
-        server {
-            listen 8020;
-            server_name madalena.com.br;
+client_max_body_size 0;
 
-            location / {
-                proxy_pass http://127.0.0.1:8010;
-                proxy_set_header Host $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            }
+server {
+    listen 8020;
+    server_name madalena.com.br;
+
+    location / {
+        proxy_pass http://127.0.0.1:8010;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
             location /static {
                 alias /opt/app/madalena/static/;
             }
@@ -20,6 +18,4 @@ http {
             location /media {
                 alias /opt/app/madalena/media/;
             }
-        }
-    }
 }
