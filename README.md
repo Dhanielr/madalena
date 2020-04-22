@@ -27,7 +27,7 @@ Parâmetros:
 
 ### Funcionamento da Madalena
 
-![Fluxograma Madalena](https://lh3.googleusercontent.com/N82gP9xvQtup9Qv-7gx5s10xk5_OXsEUld5dBn2WDl0vQWTe-nlzVXREfTIejUf5NIDJjvpP3wr9oCRd_zf5=w2170-h1636-rw)
+![Fluxograma Madalena](https://drive.google.com/uc?export=view&id=1hoGsWQC8TsQk_jSGoL8ImBPHqLG3wdwi)
 
 
 ### Instalação
