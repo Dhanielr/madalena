@@ -55,8 +55,11 @@ A instalação é bem simples, detalharei abaixo os passos:
 
 * Após a criação da imagem do docker com sucesso, basta agora rodar o container. Estou incluindo no comando parâmetros para que seja criado um usuário **admin** no painel *admin do Django*, para visualizer melhor as imagens que foram recebidas pela API e as redimensionadas.
 
-    uri: 
+    **Acesso:** *localhost:8020/admin*
 
+    **Usuário:** admin
+    
+    **Senha:** 321mudar
 
         sudo docker run -it -p 8020:8020 -e DJANGO_SUPERUSER_USERNAME=admin -e DJANGO_SUPERUSER_PASSWORD=321mudar -e DJANGO_SUPERUSER_EMAIL=admin@example.com madalena
 
