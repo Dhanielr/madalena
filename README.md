@@ -17,7 +17,7 @@ Parâmetros:
 
 | Parâmetro               | Tipo             | Valor Padrão | Descrição                                                                                                          |
 |-------------------------|------------------|--------------|--------------------------------------------------------------------------------------------------------------------|
-| **image** <font size="1">*Obrigatório*</font> | ImageFile        | None         | Parâmetro para definir a imagem que será redimensionada.                                                        |
+| **image** *Obrigatório* | ImageFile        | None         | Parâmetro para definir a imagem que será redimensionada.                                                        |
 | **width** *Opcional*    | Positive Integer | 384          | Parâmetro para definir a largura desejada na imagem redimensionada.                                         |
 | **height** *Opcional*   | Positive Integer | 384          | Parâmetro para definir a altura desejada na imagem redimensionada.                                          |
 | **crop** *Opcional*     | Boolean          | true         | Parâmetro para definir se a imagem pode ser cortada no momento do redimensionamento para manter proporcionalidade. |
