@@ -39,9 +39,9 @@ A instalação é bem simples, detalharei abaixo os passos:
 
 * Faça um clone do repositório, se você tiver feito o *Fork* coloque a sua referência *ssh* no lugar da descrita abaixo:
 
-```
-git clone git@github.com:Dhanielr/madalena.git 
-```
+
+        git clone git@github.com:Dhanielr/madalena.git 
+
 
 * Após ter o repositório localmente, é importante que o mesmo ambiente do repositório já possua o [Docker](https://docs.docker.com/engine/install/), se não for esse o caso, basta clicar [aqui](https://docs.docker.com/engine/install/)  para instalar.
 
@@ -49,25 +49,25 @@ git clone git@github.com:Dhanielr/madalena.git
 
 * Tendo agora o ambiente com o Docker instalado e o repositório baixado localmente, acesse o repositório e rode o seguinte comando, para que seja criada a imagem para o nosso container:
 
-```
-cd madalena
-sudo docker build -t madalena .
-```
-* Após a criação da imagem do docker, agora é basta rodar o container, estou incluindo no comando, parâmetros para que seja criado um usuário admin, para visualizer melhor as imagens que foram recebidas pela API e as redimensionadas.
 
-```
-sudo docker run -it -p 8020:8020 -e DJANGO_SUPERUSER_USERNAME=admin -e DJANGO_SUPERUSER_PASSWORD=321mudar -e DJANGO_SUPERUSER_EMAIL=admin@example.com madalena
-```
+        cd madalena
+        sudo docker build -t madalena .
+
+* Após a criação da imagem do docker com sucesso, basta agora rodar o container. Estou incluindo no comando parâmetros para que seja criado um usuário **admin** no painel *admin do Django*, para visualizer melhor as imagens que foram recebidas pela API e as redimensionadas.
+
+    uri: 
+
+
+        sudo docker run -it -p 8020:8020 -e DJANGO_SUPERUSER_USERNAME=admin -e DJANGO_SUPERUSER_PASSWORD=321mudar -e DJANGO_SUPERUSER_EMAIL=admin@example.com madalena
+
 * Feito isso, nosso container Docker está criado e rodando, bastando agora que o *celery* seja iniciado, para isso, precisamos acessar um *shell* do nosso container.
 
-```
-sudo docker exec -it CONTAINER_ID /bin/bash
-```
+        sudo docker exec -it CONTAINER_ID /bin/bash
+
 * Já no bash do nosso container, acesse a pasta */opt/app/madalena/* e execute a chamada do celery.
 
-```
-celery -A madalena worker --loglevel=info
-```
+        celery -A madalena worker --loglevel=info
+
 * Agora basta fazer seus envios para a url *localhost:8020/funnel* e verá a no seu *terminal do celery*, a recepção das tasks e no *terminal do docker run* as requisições http. 
 
 :)
